@@ -272,6 +272,30 @@
     margin: 0;
   }
 
+  .story__text > p + p { margin-top: 1em; }
+
+  .story__quote {
+    margin: 0 0 20px;
+    padding: 16px 20px;
+    border-left: 4px solid var(--pink);
+    background: rgba(201,87,120,0.08);
+    color: var(--ink);
+    font-family: var(--font-zine);
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .story__quote p { margin: 0; }
+
+  .story__quote-attribution {
+    display: block;
+    margin-top: 12px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-style: normal;
+    text-align: right;
+  }
+
   .story img {
     width: 100%;
     aspect-ratio: 4 / 3;
