@@ -21,7 +21,7 @@
 
   <header class="case-head">
     <h1>Meta-Plant</h1>
-    <p>A campaign changelog that grows. Each optimization is a branch, and its color shows if the KPI got better or worse.</p>
+    <p>A campaign changelog that grows. Pick a date range, and the plant shows how the campaign performs in that period and which optimizations were made in it.</p>
     <figure class="case-illustration">
       <img src="../images/plant%20pot%20newspaper.png" alt="Newspaper-wrapped plant pots and seedlings beneath a Make Plant Pots from Newspaper sign">
     </figure>
@@ -51,27 +51,28 @@
         <section class="case-section">
           <p class="story__label">What it does</p>
           <h2>One place for change and effect</h2>
-          <p>The Meta Marketing API feeds the numbers in automatically, every day. I log each optimization in a short form, with the KPI before and after. The plant shows the live KPI next to the target, and I get an email when a campaign drops below it.</p>
+          <p>The Meta Marketing API feeds in one row of results per day, automatically. I log each optimization in a short form, with the KPI before and after. A date range picker works like the one in Ads Manager: Today, Yesterday, Last 7 days, Last 30 days, This month, Last month, or custom dates. The totals, the KPI status, the plant, and the logged changes all follow the chosen period.</p>
+          <p>When the KPI of the last 3 days is worse than the target, I get an email. It comes once per dip, not every day.</p>
         </section>
 
         <section class="case-section">
           <h2>How it works</h2>
           <ol class="case-steps">
             <li>GitHub Actions runs every morning.</li>
-            <li><code>sync-campaigns.js</code> pulls the numbers from the Meta Marketing API into a Supabase database.</li>
-            <li><code>check-kpi.js</code> compares the latest value with the KPI target and sends an email if it is worse.</li>
-            <li>The Next.js app reads the data and draws the plant.</li>
+            <li>sync-campaigns.js pulls daily spend, impressions, clicks, and CPM from the Meta Marketing API into a Supabase database, one row per day.</li>
+            <li>check-kpi.js adds up the last 3 days, calculates the KPI, and sends an email if it is worse than the target.</li>
+            <li>The Next.js app reads the data for the selected date range and draws the plant.</li>
           </ol>
         </section>
 
         <section class="case-section">
           <h2>The QA side</h2>
-          <p>I built it with testing in mind. Playwright tests cover the navigation, the campaign list, the plant page with its live KPI status, and the form validation. Next on my list: tests for submitting the form and for the alert logic.</p>
+          <p>I built it with testing in mind. Five Playwright tests cover the navigation, the campaign list, the plant page with its live KPI status, the form validation, and the date range picker. Next on my list: tests for submitting the form and for the alert logic.</p>
         </section>
 
         <section class="case-section">
           <h2>What I learned</h2>
-          <p>Connecting a real API, keeping secrets out of the code, scheduling a job, and making data readable at a glance. One small detail taught me a lot: for CPM, lower is better, so colors and wording had to follow that rule everywhere.</p>
+          <p>Connecting a real API, keeping secrets out of the code, scheduling a job, and making data readable at a glance.</p>
         </section>
 
         <div class="case-actions">
