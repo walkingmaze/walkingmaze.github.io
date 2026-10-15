@@ -1,87 +1,14 @@
-# Meta-Plant
+# Jules — Personal Website
 
-A campaign changelog that grows. Meta-Plant shows the optimization history of a Meta Ads campaign as a jade plant: every logged optimization is a branch, and its color shows whether the KPI got better or worse. The plant updates to the selected date range, so you can see performance and the changes made in that period together.
+Jules is the personal portfolio of Yuliia. It brings together her background in paid social, her growing experience with software testing and automation, selected projects, and the ideas and interests she wants to keep close.
 
-## Why
+## Pages
 
-In paid social, optimizations are often tracked in a spreadsheet, and people open a separate tab to check if a change worked. Meta-Plant puts the change and its effect in one picture and makes it easy to compare the same campaign across time periods.
+- **Home** (`index.html`) — an introduction, a short story about the path into code, selected projects, and a link to Paraphelia.
+- **About** (`about.html`) — project highlights, automation and testing work, professional experience, and contact links.
+- **Paraphelia** (`paraphelia.html`) — a collection of non-work stuff.
+- **Meta-Plant case study** (`projects/meta-plant.html`) — the story behind a campaign optimization-history project.
 
-## Features
 
-- Daily automatic sync of campaign performance from the Meta Marketing API
-- One row of results per day in Supabase, so date ranges like Last 7 days, Last 30 days, and custom dates work reliably
-- Form to log an optimization (type, date, comment, KPI before and after)
-- Plant view: each branch is one optimization. Sage = better than target, orange = worse, dashed gold line = KPI target
-- Live KPI status with the distance to target, based on the selected date range
-- Email alert when a campaign's rolling 3-day KPI drops below target, sent once per dip until it recovers
-- Playwright smoke tests covering navigation, campaign list, plant page status, form validation, and date range picker
-
-## How it works
-
-```text
-Meta Marketing API
-        |
-GitHub Actions (daily, 06:00 UTC)
-        |
-sync-campaigns.js  -->  Supabase (Postgres)  -->  Next.js app
-        |
-check-kpi.js  -->  alert email (Resend)
 ```
 
-## Tech stack
-
-Next.js (App Router, TypeScript), Supabase, Meta Marketing API, GitHub Actions, Resend, Playwright.
-
-## Project structure
-
-```text
-.github/workflows/sync-campaigns.yml   daily sync + KPI check
-sync-campaigns.js                      pulls Meta data into Supabase
-check-kpi.js                           sends an alert email if the KPI is below target
-fetch-campaigns.js                     read-only API test script
-webapp/                                Next.js app (/campaigns, /changes, /tree)
-webapp/tests/                          Playwright tests
-```
-
-## Data model
-
-Three tables: `campaigns` (KPI metric and target), `insight_snapshots` (one row per sync/day), and `changes` (logged optimizations). Row Level Security is enabled; the app reads and writes on the server only.
-
-## Run locally
-
-Needs Node 22+, a Supabase project, and a Meta system user token with `ads_read`.
-
-Environment variables:
-
-```bash
-META_ACCESS_TOKEN
-SUPABASE_URL
-SUPABASE_SERVICE_ROLE_KEY   (the Supabase secret key)
-RESEND_API_KEY
-ALERT_EMAIL_TO
-```
-
-```bash
-npm install
-node sync-campaigns.js
-cd webapp
-npm install
-npm run dev
-```
-
-## Tests
-
-```bash
-cd webapp
-npx playwright install chromium
-npm test
-```
-
-The smoke tests cover page navigation, campaign list, plant page with live KPI status, form validation, and the date range picker. The next planned tests are form submission and alert logic.
-
-## Notes
-
-- Built with a personal test ad account and test campaign.
-- Internal prototype: there is no login yet, so do not deploy it publicly as it is.
-- Next: AI-written trend summary per campaign, more tests, and continued cleanup around the alert and form flows.
-- This project also taught me to calculate a period KPI from totals (total spend divided by total impressions) instead of averaging daily values, and that for CPM, lower is better, so colors and wording follow that rule everywhere.
