@@ -675,6 +675,10 @@
     text-align: center;
   }
 
+  .case-section .case-note {
+    text-align: left;
+  }
+
   .profile-head {
     max-width: 1100px;
     margin: 0 auto;
