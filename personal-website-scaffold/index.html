@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jules — Scaffold</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Special+Elite&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__logo">Jules</div>
+    <div class="nav__links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#paraphelia">Paraphelia</a>
+    </div>
+  </nav>
+
+  <!-- HERO: centered statement, homepage -->
+  <section class="hero" id="home">
+    <div class="hero__inner">
+      <div class="zine-headline"><h1>Jules</h1></div>
+      <div class="zine-body">I build things, break things, and write down what I learn.</div>
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn--primary">See the work</a>
+        <a href="#about" class="btn btn--ghost">More about me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT: centered intro text, generous side whitespace -->
+  <section class="section section--white" id="about">
+    <div class="about">
+      <h2>A bit about how I got here</h2>
+      <p>In 2025, I discovered surfing, and it gave me a new mindset, in a way. Before that, I found comfort in trying to learn web development and then branching out into automation testing. The first journey was completely solo; for the second, I found mentors. </p>
+      <p> Both things require patience, focus, and grinding—conditions I wish I could harness more consistently. This is the flow state I'm chasing, and I'm sharing some of the ride here along the way.</p>
+      </div>
+
+    <div class="triptych">
+      <img src="images/Porto.jpg" alt="Porto">
+    </div>
+  </section>
+
+  <!-- STORY: alternating text + image sections -->
+  <section class="section">
+    <div class="story">
+      <div class="story__text">
+        <p class="story__label">The short version</p>
+        <h3>What I spend my time on</h3>
+        <p>Placeholder copy for an alternating story block. Text on one side, image on the other — flips each time you add another one of these.</p>
+      </div>
+      <a class="story__preview" href="images/mysterious.png" target="_blank" rel="noopener" aria-label="Open the full mysterious scene">
+        <img src="images/mysterious.png" alt="Mysterious scene">
+      </a>
+    </div>
+
+    <div class="story">
+      <div class="story__text">
+        <p class="story__label">Currently</p>
+        <h3>What's makes me</h3>
+        <p>Another block, image order flips automatically on desktop via the nth-child rule, and stacks cleanly on mobile.</p>
+      </div>
+      <a class="story__preview" href="images/Life%20is%20roses.png" target="_blank" rel="noopener" aria-label="Open the full Life Is Roses image">
+        <img src="images/Life%20is%20roses.png" alt="Life is roses">
+      </a>
+    </div>
+  </section>
+
+  <!-- PROJECTS: 3-column card grid -->
+  <section class="section section--white" id="projects">
+    <div class="about">
+      <h2>Selected projects</h2>
+      <p>A few things worth showing.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <img src="https://placehold.co/500x312/E8E2D3/1E2422?text=Project+1" alt="Placeholder">
+        <h4>Project One</h4>
+        <p>One-line description of what it is and why it exists.</p>
+        <a href="#">See more</a>
+      </div>
+      <div class="card">
+        <img src="images/soon.png" alt="Project Two preview">
+        <h4>Project Two</h4>
+        <p>One-line description of what it is and why it exists.</p>
+        <a href="#">See more</a>
+      </div>
+      <div class="card">
+        <img src="images/soon.png" alt="Project Three preview">
+        <h4>Project Three</h4>
+        <p>One-line description of what it is and why it exists.</p>
+        <a href="#">See more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARAPHELIA: placeholder section for personal interests -->
+  <section class="section" id="paraphelia">
+    <div class="about">
+      <h2>Paraphelia</h2>
+      <p>The non-work stuff — interests, tangents, whatever doesn't fit neatly under "projects" but is still part of the picture.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <div class="footer__logo">Jules</div>
+      <div>© 2026. Built one block at a time.</div>
+    </div>
+    <div class="footer__links">
+      <a href="#">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+    </div>
+  </footer>
+
+</body>
+</html>
