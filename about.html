@@ -25,13 +25,32 @@
     <div class="profile-links">
       <a class="btn btn--primary" href="mailto:yuliiaplaksytska@gmail.com">Get in touch</a>
       <a class="btn btn--outline" href="https://github.com/walkingmaze" target="_blank" rel="noopener noreferrer">GitHub · walkingmaze</a>
+      <a class="btn btn--outline" href="https://www.linkedin.com/in/yuliiaplaksytska/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </header>
 
   <main>
+    <div class="about-return-wrap">
+      <a class="about-return" href="index.html#home">← Back to home</a>
+    </div>
+
     <section class="section section--white">
       <div class="profile-layout">
         <div class="profile-main">
+          <section class="profile-block" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
+            <article class="profile-project">
+              <h3>Meta-Plant</h3>
+              <p>A personal project that turns a Meta campaign's optimization history into a living plant. Each logged change becomes a branch, and the colors show whether the KPI improved or stayed below target. I built it to make campaign changes and their effect easier to understand at a glance.</p>
+              <ul>
+                <li>Daily sync from the Meta Marketing API into Supabase</li>
+                <li>Custom date-range filtering for campaign performance and logged changes</li>
+                <li>KPI alerts for the last 3 days and live status in the plant view</li>
+              </ul>
+              <p><a href="projects/meta-plant.html" target="_blank" rel="noopener noreferrer">Open the Meta-Plant case study</a></p>
+            </article>
+          </section>
+
           <section class="profile-block" aria-labelledby="testing-heading">
             <h2 id="testing-heading">Automation &amp; testing</h2>
             <article class="profile-project">
@@ -51,7 +70,10 @@
             </article>
           </section>
 
+          <div class="section-divider section-divider--spaced" aria-hidden="true"></div>
+          
           <section aria-labelledby="experience-heading">
+
             <h2 id="experience-heading">Experience</h2>
 
             <article class="profile-role">
